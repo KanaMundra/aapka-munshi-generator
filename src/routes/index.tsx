@@ -17,10 +17,10 @@ const navItems = [
 
 const societyServices: Service[] = [
   { title: "Monthly & Quarterly Billing", description: "Accurate billing with receipts delivered on time, every billing cycle.", icon: "M6 3h12v18H6z M9 7h6 M9 11h6 M9 15h3" },
-  { title: "Full Bookkeeping", description: "Cash Book, Bank Book, Members Ledger, and Income & Expenses Ledgers — always up to date.", icon: "M4 5h16v14H4z M8 9h8 M8 13h8 M8 17h4" },
+  { title: "Full Bookkeeping", description: "Cash Book, Bank Book, Members Ledger, and Income & Expenses Ledgers, always up to date.", icon: "M4 5h16v14H4z M8 9h8 M8 13h8 M8 17h4" },
   { title: "Account Finalization & Balance Sheet", description: "Complete Income & Expenditure Accounts and Balance Sheet prepared professionally.", icon: "M4 19h16 M7 16V8 M12 16V5 M17 16v-6" },
-  { title: "Audit by Panel Auditors", description: "Statutory audit through our empanelled auditors — hassle-free and fully compliant.", icon: "M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z M9.5 12l1.7 1.7 3.5-4" },
-  { title: "Society Register Maintenance", description: "I Register, J Register, Share Certificate, Nominee, Lien, Fixed Assets — written and current.", icon: "M5 4h11l3 3v13H5z M16 4v4h4 M8 12h8 M8 16h8" },
+  { title: "Audit by Panel Auditors", description: "Statutory audit through our empanelled auditors, hassle-free and fully compliant.", icon: "M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z M9.5 12l1.7 1.7 3.5-4" },
+  { title: "Society Register Maintenance", description: "I Register, J Register, Share Certificate, Nominee, Lien, Fixed Assets, written and current.", icon: "M5 4h11l3 3v13H5z M16 4v4h4 M8 12h8 M8 16h8" },
   { title: "MCM / AGM Minutes Books", description: "Accurate documentation of every meeting, maintained as per legal requirements.", icon: "M8 4h8 M9 2v4 M15 2v4 M5 7h14v13H5z M8 11h8 M8 15h5" },
   { title: "Income Tax, GST & TDS Filing", description: "All society tax and compliance returns filed accurately and on time.", icon: "M12 3v18 M6 7h9a3 3 0 010 6H9a3 3 0 000 6h9" },
   { title: "Cheque Preparation & Deposits", description: "We prepare and deposit cheques on your society's behalf.", icon: "M3 7h18v10H3z M6 11h5 M15 13h3" },
@@ -28,8 +28,8 @@ const societyServices: Service[] = [
 
 const businessServices: Service[] = [
   { title: "Accounting & Audits", description: "End-to-end bookkeeping and audit for individuals, societies, and small companies.", icon: "M4 6h16 M4 12h16 M4 18h10" },
-  { title: "Income Tax Returns (ITR)", description: "ITR filing for individuals and companies — correct and before every deadline.", icon: "M7 3h10v18H7z M10 8h4 M10 12h4 M10 16h2" },
-  { title: "GST Registration & Returns", description: "From registration to monthly/quarterly filings — handled completely.", icon: "M12 2l3 6 6 .9-4.5 4.4 1.1 6.7L12 16l-5.6 4 1.1-6.7L3 8.9 9 8z" },
+  { title: "Income Tax Returns (ITR)", description: "ITR filing for individuals and companies, correct and before every deadline.", icon: "M7 3h10v18H7z M10 8h4 M10 12h4 M10 16h2" },
+  { title: "GST Registration & Returns", description: "From registration to monthly/quarterly filings, handled completely.", icon: "M12 2l3 6 6 .9-4.5 4.4 1.1 6.7L12 16l-5.6 4 1.1-6.7L3 8.9 9 8z" },
   { title: "TDS Returns", description: "Never miss a TDS deadline. We file and keep you penalty-free.", icon: "M5 13l4 4L19 7 M5 7h8 M5 11h5" },
   { title: "PF, ESIC & PT Filing", description: "Stay compliant with all employee-related statutory filings.", icon: "M16 11a4 4 0 10-8 0 M4 21a8 8 0 0116 0 M19 8v6 M16 11h6" },
   { title: "Payroll Processing", description: "Accurate payroll and pay slips for your team, every month.", icon: "M4 7h16v10H4z M7 11h4 M15 13h2 M7 15h6" },
@@ -39,36 +39,36 @@ const businessServices: Service[] = [
 
 const whyCards = [
   { title: "CA-Led Expert Team", description: "Your accounts are managed directly by qualified Chartered Accountants. CA Piyush Laddha and CA Anju Laddha personally oversee every client.", icon: "M4 10l8-5 8 5-8 5-8-5z M8 13v4c2 1.3 6 1.3 8 0v-4" },
-  { title: "One Firm, Every Service", description: "Accounting, tax, audit, payroll, registrations — all under one roof. No need to run to multiple consultants.", icon: "M12 3l8 4-8 4-8-4 8-4z M4 12l8 4 8-4 M4 17l8 4 8-4" },
+  { title: "One Firm, Every Service", description: "Accounting, tax, audit, payroll, registrations, all under one roof. No need to run to multiple consultants.", icon: "M12 3l8 4-8 4-8-4 8-4z M4 12l8 4 8-4 M4 17l8 4 8-4" },
   { title: "Equal Attention for Every Client", description: "Whether you are a large corporate or a small housing society, you receive the same quality of service. No client is too small.", icon: "M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M9 11a4 4 0 100-8 4 4 0 000 8 M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75" },
-  { title: "Your Data is Secure & Always Yours", description: "10 years of secure electronic data storage. Your data stays under your control — always accessible, never lost.", icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M9.5 12l1.8 1.8 3.7-4.3" },
+  { title: "Your Data is Secure & Always Yours", description: "10 years of secure electronic data storage. Your data stays under your control, always accessible, never lost.", icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M9.5 12l1.8 1.8 3.7-4.3" },
   { title: "Always On Time", description: "We track every tax and compliance deadline so you never face a late penalty. Timely delivery is non-negotiable.", icon: "M12 8v5l3 2 M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
   { title: "Complete Confidentiality", description: "Your financial information stays private. We maintain strict professional independence and confidentiality at all times.", icon: "M3 3l18 18 M10.6 10.6A2 2 0 0013.4 13.4 M9.9 4.2A10.8 10.8 0 0121 12s-1.7 3.4-4.6 5.4 M6.1 6.1C4.2 7.3 3 9.1 3 12s4 8 9 8c1.4 0 2.7-.3 3.9-.9" },
 ];
 
 const testimonials = [
   { quote: "Aapka Munshi handles all our society's accounts, filings, and registers. Since we engaged them, we have had zero compliance issues and complete peace of mind.", author: "Secretary, Sonam Heights CHS Ltd." },
-  { quote: "As a small business owner, I used to dread tax season. Now Aapka Munshi takes care of everything — GST, TDS, ITR — and I hear about it only when it's done.", author: "Business Owner, Mumbai" },
-  { quote: "What sets them apart is that they treat our society with the same seriousness as a large corporate. Every register, every minute book — perfectly maintained.", author: "Chairman, Evershine Helio CHS Ltd." },
+  { quote: "As a small business owner, I used to dread tax season. Now Aapka Munshi takes care of everything, GST, TDS, ITR, and I hear about it only when it's done.", author: "Business Owner, Mumbai" },
+  { quote: "What sets them apart is that they treat our society with the same seriousness as a large corporate. Every register, every minute book, perfectly maintained.", author: "Chairman, Evershine Helio CHS Ltd." },
 ];
 
 const clients = [
-  "VRR Fortuna — Bengaluru",
+  "VRR Fortuna, Bengaluru",
   "Sonam Heights CHS Ltd.",
   "Evershine Helio CHS Ltd., Kandivali",
   "Eaze Zone Mall, Malad West",
   "Iraisa Co-op Housing Society",
   "Savory Kitchen",
-  "Epsilon — Ocular Instruments",
+  "Epsilon, Ocular Instruments",
 ];
 
 const softwareFeatures = [
   "Bills and receipts sent to members via Email & SMS automatically",
   "All legal documents maintained digitally (Share Register, Nominee Register, Election Rolls)",
-  "Free mobile app for flat owners — access data anytime, anywhere",
+  "Free mobile app for flat owners, access data anytime, anywhere",
   "Online payment gateway with error protection",
   "10 years of secure electronic data storage",
-  "Data remains in your society's possession — even if you discontinue service",
+  "Data remains in your society's possession, even if you discontinue service",
 ];
 
 export const Route = createFileRoute("/")({
@@ -266,7 +266,7 @@ function Index() {
         <div className="relative mx-auto max-w-[1140px] px-5 py-16 lg:px-0">
           <p className="animate-hero-up text-[13px] font-medium uppercase tracking-[0.08em] text-white/80">Chartered Accountants · Mumbai</p>
           <h1 className="animate-hero-up mt-5 max-w-4xl text-[34px] font-bold leading-[1.12] md:text-[52px]">Your Accounts. Your Taxes.<br />Our Responsibility.</h1>
-          <p className="animate-hero-up animation-delay-200 mt-6 max-w-3xl text-lg leading-[1.75] text-white/88">Aapka Munshi is a CA-led firm providing complete accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai — so you can focus on what you do best.</p>
+          <p className="animate-hero-up animation-delay-200 mt-6 max-w-3xl text-lg leading-[1.75] text-white/88">Aapka Munshi is a CA-led firm providing complete accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai, so you can focus on what you do best.</p>
           <div className="animate-hero-up animation-delay-400 mt-9 flex flex-col gap-4 sm:flex-row">
             <button onClick={() => scrollTo("contact")} className="rounded-lg bg-white px-8 py-3.5 font-semibold text-munshi-primary transition-colors hover:bg-munshi-surface">Book a Meeting</button>
             <button onClick={() => scrollTo("services")} className="rounded-lg border-2 border-white px-8 py-3.5 font-semibold text-white transition-colors hover:bg-white hover:text-munshi-primary">View Our Services</button>
@@ -285,9 +285,9 @@ function Index() {
             <p className="section-label">Who We Are</p>
             <h2 className="section-title mt-3">Your Financial Partner,<br />Not Just Your Accountant</h2>
             <div className="mt-7 space-y-5 text-base leading-[1.75] text-munshi-secondary">
-              <p>Your financial matters deserve more than just a number-cruncher — they deserve a trusted partner.</p>
+              <p>Your financial matters deserve more than just a number-cruncher, they deserve a trusted partner.</p>
               <p>Aapka Munshi is a team of Chartered Accountants led by <strong className="font-semibold text-munshi-text">CA Piyush Laddha</strong> and <strong className="font-semibold text-munshi-text">CA Anju Laddha</strong>, dedicated to managing your day-to-day accounting, business compliances, and tax filings with precision and care.</p>
-              <p>We serve clients of all sizes — from housing societies and small businesses to growing companies and individuals — delivering the same personalized, high-quality attention to every account we handle.</p>
+              <p>We serve clients of all sizes, from housing societies and small businesses to growing companies and individuals, delivering the same personalized, high-quality attention to every account we handle.</p>
             </div>
           </div>
           <div className="grid gap-5 self-center sm:grid-cols-3 lg:grid-cols-1">
@@ -303,7 +303,7 @@ function Index() {
           <div className="max-w-3xl">
             <p className="section-label">What We Do</p>
             <h2 className="section-title mt-3">Everything You Need,<br />Under One Roof</h2>
-            <p className="mt-5 leading-[1.75] text-munshi-secondary">Complete financial, accounting, and compliance services — tailored for housing societies and businesses.</p>
+            <p className="mt-5 leading-[1.75] text-munshi-secondary">Complete financial, accounting, and compliance services, tailored for housing societies and businesses.</p>
           </div>
           <div className="mt-10 flex flex-wrap gap-8 border-b border-munshi-border">
             <button onClick={() => setActiveTab("societies")} className={`border-b-2 pb-4 text-lg transition-colors ${activeTab === "societies" ? "border-munshi-highlight font-bold text-munshi-primary" : "border-transparent font-medium text-munshi-secondary"}`}>Housing Societies</button>
@@ -342,7 +342,7 @@ function Index() {
           <div>
             <p className="section-label">Our Technology</p>
             <h2 className="section-title mt-3">Backed by Smart Software</h2>
-            <p className="mt-5 leading-[1.75] text-munshi-secondary">We use <strong className="font-semibold text-munshi-text">SSSociety</strong> — purpose-built software for housing societies — giving your committee and members full transparency and control.</p>
+            <p className="mt-5 leading-[1.75] text-munshi-secondary">We use <strong className="font-semibold text-munshi-text">SSSociety</strong>, purpose-built software for housing societies, giving your committee and members full transparency and control.</p>
             <ul className="mt-8 grid gap-4 md:grid-cols-2">
               {softwareFeatures.map((feature) => <li key={feature} className="flex gap-3 leading-[1.6] text-munshi-secondary"><span className="text-munshi-highlight">✓</span><span>{feature}</span></li>)}
             </ul>
@@ -365,7 +365,7 @@ function Index() {
         <div className="mx-auto max-w-[1140px] px-5 lg:px-0">
           <p className="section-label text-munshi-highlight">Our Clientele</p>
           <h2 className="section-title mt-3 text-white">Trusted By Businesses &<br />Societies Across Mumbai</h2>
-          <p className="mt-5 max-w-3xl leading-[1.75] text-white/78">From housing societies to growing enterprises — clients across Mumbai and Bengaluru rely on Aapka Munshi.</p>
+          <p className="mt-5 max-w-3xl leading-[1.75] text-white/78">From housing societies to growing enterprises, clients across Mumbai and Bengaluru rely on Aapka Munshi.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {clients.map((client) => <div key={client} className="rounded-2xl border border-white/15 bg-white/8 p-6 font-semibold text-white backdrop-blur">{client}</div>)}
           </div>
@@ -379,7 +379,7 @@ function Index() {
           <div className="mt-10" onMouseEnter={() => setPauseSlider(true)} onMouseLeave={() => setPauseSlider(false)}>
             <article key={testimonial} className="animate-fade-soft rounded-2xl border border-munshi-border bg-munshi-surface p-8 shadow-munshi-card md:p-10">
               <p className="text-xl leading-[1.75] text-munshi-text">“{testimonials[testimonial].quote}”</p>
-              <p className="mt-6 font-semibold text-munshi-primary">— {testimonials[testimonial].author}</p>
+              <p className="mt-6 font-semibold text-munshi-primary">- {testimonials[testimonial].author}</p>
               <p className="mt-3 text-munshi-highlight">★★★★★</p>
             </article>
             <div className="mt-6 flex items-center justify-center gap-4">
@@ -396,7 +396,7 @@ function Index() {
           <div>
             <p className="section-label">Get In Touch</p>
             <h2 className="section-title mt-3">Let's Talk</h2>
-            <p className="mt-5 leading-[1.75] text-munshi-secondary">Have a question or ready to get started? Reach out — we typically respond within 24 hours.</p>
+            <p className="mt-5 leading-[1.75] text-munshi-secondary">Have a question or ready to get started? Reach out, we typically respond within 24 hours.</p>
             <div className="mt-8 space-y-4 leading-[1.7] text-munshi-secondary">
               <p>📞 +91 99306 97936</p><p>📞 +91 90792 15030</p><p>✉️ munshiaapka@gmail.com</p><p>📍 Office No. 509, Dimple Arcade, Asha Nagar Road, Thakur Complex, Kandivali East, Mumbai – 400101</p>
             </div>
@@ -426,7 +426,7 @@ function Index() {
       <footer className="bg-munshi-dark text-white">
         <div className="mx-auto grid max-w-[1140px] gap-10 px-5 py-14 md:grid-cols-3 lg:px-0">
           <div><h3 className="text-2xl font-bold">Aapka Munshi<sup className="text-xs">®</sup></h3><p className="mt-2 italic text-white/70">बुक्स आपकी जिम्मेदारी हमारी</p><p className="mt-5 leading-[1.75] text-white/70">CA-led accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai.</p></div>
-          <div><p className="text-[13px] font-medium uppercase tracking-[0.08em] text-white/55">Quick Links</p><div className="mt-5 space-y-3 text-white/72">{["About Us", "Services — Housing Societies", "Services — Companies & Individuals", "Why Choose Us", "Contact"].map((link, index) => <button key={link} onClick={() => scrollTo(["about", "services", "services", "why-us", "contact"][index])} className="block transition-colors hover:text-munshi-highlight">{link}</button>)}</div></div>
+          <div><p className="text-[13px] font-medium uppercase tracking-[0.08em] text-white/55">Quick Links</p><div className="mt-5 space-y-3 text-white/72">{["About Us", "Services, Housing Societies", "Services, Companies & Individuals", "Why Choose Us", "Contact"].map((link, index) => <button key={link} onClick={() => scrollTo(["about", "services", "services", "why-us", "contact"][index])} className="block transition-colors hover:text-munshi-highlight">{link}</button>)}</div></div>
           <div><p className="text-[13px] font-medium uppercase tracking-[0.08em] text-white/55">Contact</p><div className="mt-5 space-y-3 leading-[1.7] text-white/72"><p>📞 99306 97936 / 90792 15030</p><p>✉ munshiaapka@gmail.com</p><p>📍 Office No. 509, Dimple Arcade, Kandivali East, Mumbai – 400101</p></div></div>
         </div>
         <div className="border-t border-white/12 px-5 py-5 text-center text-sm text-white/60">© 2025 Aapka Munshi. All rights reserved. | CA Piyush Laddha & CA Anju Laddha</div>
