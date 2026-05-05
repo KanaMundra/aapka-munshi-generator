@@ -364,7 +364,7 @@ function Index() {
       <section id="clients" className="section-pad scroll-mt-24 bg-munshi-primary text-white">
         <div className="mx-auto max-w-[1140px] px-5 lg:px-0">
           <p className="section-label text-munshi-highlight">Our Clientele</p>
-          <h2 className="section-title mt-3 text-white">Trusted By Businesses &<br />Societies Across Mumbai</h2>
+          <h2 className="section-title mt-3 !text-white">Trusted By Businesses &<br />Societies Across Mumbai</h2>
           <p className="mt-5 max-w-3xl leading-[1.75] text-white/78">From housing societies to growing enterprises, clients across Mumbai and Bengaluru rely on Aapka Munshi.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {clients.map((client) => <div key={client} className="rounded-2xl border border-white/15 bg-white/8 p-6 font-semibold text-white backdrop-blur">{client}</div>)}
