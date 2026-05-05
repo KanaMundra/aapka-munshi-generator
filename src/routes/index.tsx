@@ -244,7 +244,7 @@ function Index() {
           </nav>
 
           <button onClick={() => scrollTo("contact")} className={`hidden rounded-lg px-5 py-3 text-sm font-semibold transition-colors lg:inline-flex ${scrolled ? "bg-munshi-primary text-white hover:bg-munshi-accent" : "bg-white text-munshi-primary hover:bg-munshi-surface"}`}>
-            Book Free Consultation
+            Book a Meeting
           </button>
 
           <button className="lg:hidden" onClick={() => setMobileOpen((open) => !open)} aria-label="Toggle menu" aria-expanded={mobileOpen}>
@@ -256,7 +256,7 @@ function Index() {
         <div className={`overflow-hidden bg-white text-munshi-primary shadow-xl transition-all duration-300 lg:hidden ${mobileOpen ? "max-h-96" : "max-h-0"}`}>
           <div className="space-y-1 px-5 pb-5 pt-2">
             {navItems.map((item) => <button key={item.id} onClick={() => scrollTo(item.id)} className="block w-full border-b border-munshi-border py-3 text-left font-medium">{item.label}</button>)}
-            <button onClick={() => scrollTo("contact")} className="mt-4 w-full rounded-lg bg-munshi-primary px-5 py-3 font-semibold text-white">Book Free Consultation</button>
+            <button onClick={() => scrollTo("contact")} className="mt-4 w-full rounded-lg bg-munshi-primary px-5 py-3 font-semibold text-white">Book a Meeting</button>
           </div>
         </div>
       </header>
@@ -268,7 +268,7 @@ function Index() {
           <h1 className="animate-hero-up mt-5 max-w-4xl text-[34px] font-bold leading-[1.12] md:text-[52px]">Your Accounts. Your Taxes.<br />Our Responsibility.</h1>
           <p className="animate-hero-up animation-delay-200 mt-6 max-w-3xl text-lg leading-[1.75] text-white/88">Aapka Munshi is a CA-led firm providing complete accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai — so you can focus on what you do best.</p>
           <div className="animate-hero-up animation-delay-400 mt-9 flex flex-col gap-4 sm:flex-row">
-            <button onClick={() => scrollTo("contact")} className="rounded-lg bg-white px-8 py-3.5 font-semibold text-munshi-primary transition-colors hover:bg-munshi-surface">Book a Free Consultation</button>
+            <button onClick={() => scrollTo("contact")} className="rounded-lg bg-white px-8 py-3.5 font-semibold text-munshi-primary transition-colors hover:bg-munshi-surface">Book a Meeting</button>
             <button onClick={() => scrollTo("services")} className="rounded-lg border-2 border-white px-8 py-3.5 font-semibold text-white transition-colors hover:bg-white hover:text-munshi-primary">View Our Services</button>
           </div>
           <div className="mt-10 grid gap-4 text-sm font-medium text-white/90 md:grid-cols-3">
