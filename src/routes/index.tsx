@@ -1,7 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import emailjs from "@emailjs/browser";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-type Service = { title: string; description: string; icon: string };
+const EMAILJS_SERVICE_ID = "service_zwtu9yf";
+const EMAILJS_TEMPLATE_ID = "template_jxftfs8";
+const EMAILJS_PUBLIC_KEY = "vSTaveLY5Ng1zf1AJ";
+
+type Service = { title: string; description: string; icon: string; iconSrc?: string };
 type FieldName = "name" | "phone" | "email" | "service" | "message";
 
 type FormValues = Record<FieldName, string>;
@@ -20,10 +25,10 @@ const societyServices: Service[] = [
   { title: "Full Bookkeeping", description: "Cash Book, Bank Book, Members Ledger, and Income & Expenses Ledgers, always up to date.", icon: "M4 5h16v14H4z M8 9h8 M8 13h8 M8 17h4" },
   { title: "Account Finalization & Balance Sheet", description: "Complete Income & Expenditure Accounts and Balance Sheet prepared professionally.", icon: "M4 19h16 M7 16V8 M12 16V5 M17 16v-6" },
   { title: "Audit by Panel Auditors", description: "Statutory audit through our empanelled auditors, hassle-free and fully compliant.", icon: "M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z M9.5 12l1.7 1.7 3.5-4" },
-  { title: "Society Register Maintenance", description: "I Register, J Register, Share Certificate, Nominee, Lien, Fixed Assets, written and current.", icon: "M5 4h11l3 3v13H5z M16 4v4h4 M8 12h8 M8 16h8" },
+  { title: "Society Register Maintenance", description: "Writing & Updating of Various Society Registers: I Register, J Register, Share Certificate Registers, Nominee Registers, Lien Registers, Fixed Assets Registers, Investment Registers", icon: "M5 4h11l3 3v13H5z M16 4v4h4 M8 12h8 M8 16h8" },
   { title: "MCM / AGM Minutes Books", description: "Accurate documentation of every meeting, maintained as per legal requirements.", icon: "M8 4h8 M9 2v4 M15 2v4 M5 7h14v13H5z M8 11h8 M8 15h5" },
-  { title: "Income Tax, GST & TDS Filing", description: "All society tax and compliance returns filed accurately and on time.", icon: "M12 3v18 M6 7h9a3 3 0 010 6H9a3 3 0 000 6h9" },
-  { title: "Cheque Preparation & Deposits", description: "We prepare and deposit cheques on your society's behalf.", icon: "M3 7h18v10H3z M6 11h5 M15 13h3" },
+  { title: "Income Tax, GST & TDS Filing", description: "All society tax and compliance returns filed accurately and on time.", icon: "", iconSrc: "/rupee.svg" },
+  { title: "Other Services", description: "Society Registration & Handover, Adoption of Bye Laws, Preparation of Testamentary Documents, Conveyance of Societies", icon: "M9 12l2 2 4-5 M12 22a10 10 0 110-20 10 10 0 010 20z" },
 ];
 
 const businessServices: Service[] = [
@@ -37,8 +42,9 @@ const businessServices: Service[] = [
   { title: "All Key Registrations", description: "PAN, TAN, IEC, PF, ESI, Gumasta License, MSME (Udyam Mitra), Digital Signature (DSC).", icon: "M9 12l2 2 4-5 M12 22a10 10 0 110-20 10 10 0 010 20z" },
 ];
 
+
 const whyCards = [
-  { title: "CA-Led Expert Team", description: "Your accounts are managed directly by qualified Chartered Accountants. CA Piyush Laddha and CA Anju Laddha personally oversee every client.", icon: "M4 10l8-5 8 5-8 5-8-5z M8 13v4c2 1.3 6 1.3 8 0v-4" },
+  { title: "Expert Accounting Team", description: "Your accounts are managed directly by qualified Accounting Consultants. CA Anju Laddha and our expert team personally oversee every client.", icon: "M4 10l8-5 8 5-8 5-8-5z M8 13v4c2 1.3 6 1.3 8 0v-4" },
   { title: "One Firm, Every Service", description: "Accounting, tax, audit, payroll, registrations, all under one roof. No need to run to multiple consultants.", icon: "M12 3l8 4-8 4-8-4 8-4z M4 12l8 4 8-4 M4 17l8 4 8-4" },
   { title: "Equal Attention for Every Client", description: "Whether you are a large corporate or a small housing society, you receive the same quality of service. No client is too small.", icon: "M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M9 11a4 4 0 100-8 4 4 0 000 8 M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75" },
   { title: "Your Data is Secure & Always Yours", description: "10 years of secure electronic data storage. Your data stays under your control, always accessible, never lost.", icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M9.5 12l1.8 1.8 3.7-4.3" },
@@ -74,10 +80,10 @@ const softwareFeatures = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aapka Munshi | CA Accounting & Tax Services" },
-      { name: "description", content: "CA-led accounting, tax, audit, compliance, and housing society services in Mumbai by Aapka Munshi." },
-      { property: "og:title", content: "Aapka Munshi | CA Accounting & Tax Services" },
-      { property: "og:description", content: "Trusted CA-led accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai." },
+      { title: "Aapka Munshi | LLP Accounting & Tax Services" },
+      { name: "description", content: "Aapka Munshi LLP Accounting Consultant — accounting, tax, audit, compliance, and housing society services in Mumbai." },
+      { property: "og:title", content: "Aapka Munshi | LLP Accounting & Tax Services" },
+      { property: "og:description", content: "Aapka Munshi LLP Accounting Consultant — trusted accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai." },
       { property: "og:type", content: "website" },
     ],
   }),
@@ -144,6 +150,8 @@ function Index() {
   const [values, setValues] = useState<FormValues>({ name: "", phone: "", email: "", service: "", message: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState("");
 
   const services = activeTab === "societies" ? societyServices : businessServices;
 
@@ -213,7 +221,7 @@ function Index() {
 
   const handleBlur = (name: FieldName) => setErrors((current) => ({ ...current, [name]: validateField(name, values[name]) || undefined }));
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const nextErrors = (Object.keys(values) as FieldName[]).reduce<FormErrors>((acc, key) => {
       const error = validateField(key, values[key]);
@@ -221,7 +229,29 @@ function Index() {
       return acc;
     }, {});
     setErrors(nextErrors);
-    if (Object.keys(nextErrors).length === 0) setSubmitted(true);
+    if (Object.keys(nextErrors).length > 0) return;
+
+    setSending(true);
+    setSendError("");
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: values.name,
+          phone: values.phone,
+          from_email: values.email,
+          service: values.service,
+          message: values.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setSubmitted(true);
+    } catch {
+      setSendError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const navClass = scrolled ? "bg-white/95 text-munshi-primary shadow-[0_8px_32px_rgba(27,67,50,0.12)] backdrop-blur" : "bg-transparent text-white";
@@ -241,6 +271,7 @@ function Index() {
                 {item.label}
               </button>
             ))}
+            <Link to="/byelaws" className="border-b-2 border-transparent py-2 text-sm font-medium transition-colors hover:border-munshi-highlight">Bye-Laws</Link>
           </nav>
 
           <button onClick={() => scrollTo("contact")} className={`hidden rounded-lg px-5 py-3 text-sm font-semibold transition-colors lg:inline-flex ${scrolled ? "bg-munshi-primary text-white hover:bg-munshi-accent" : "bg-white text-munshi-primary hover:bg-munshi-surface"}`}>
@@ -256,6 +287,7 @@ function Index() {
         <div className={`overflow-hidden bg-white text-munshi-primary shadow-xl transition-all duration-300 lg:hidden ${mobileOpen ? "max-h-96" : "max-h-0"}`}>
           <div className="space-y-1 px-5 pb-5 pt-2">
             {navItems.map((item) => <button key={item.id} onClick={() => scrollTo(item.id)} className="block w-full border-b border-munshi-border py-3 text-left font-medium">{item.label}</button>)}
+            <Link to="/byelaws" className="block w-full border-b border-munshi-border py-3 text-left font-medium">Bye-Laws</Link>
             <button onClick={() => scrollTo("contact")} className="mt-4 w-full rounded-lg bg-munshi-primary px-5 py-3 font-semibold text-white">Book a Meeting</button>
           </div>
         </div>
@@ -264,15 +296,14 @@ function Index() {
       <section id="hero" className="munshi-hero-gradient relative flex min-h-[760px] items-center overflow-hidden pt-28 text-white md:min-h-[720px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_28%),radial-gradient(circle_at_80%_60%,rgba(82,183,136,0.18),transparent_32%)]"></div>
         <div className="relative mx-auto max-w-[1140px] px-5 py-16 lg:px-0">
-          <p className="animate-hero-up text-[13px] font-medium uppercase tracking-[0.08em] text-white/80">Chartered Accountants · Mumbai</p>
           <h1 className="animate-hero-up mt-5 max-w-4xl text-[34px] font-bold leading-[1.12] md:text-[52px]">Your Accounts. Your Taxes.<br />Our Responsibility.</h1>
-          <p className="animate-hero-up animation-delay-200 mt-6 max-w-3xl text-lg leading-[1.75] text-white/88">Aapka Munshi is a CA-led firm providing complete accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai, so you can focus on what you do best.</p>
+          <p className="animate-hero-up animation-delay-200 mt-6 max-w-3xl text-lg leading-[1.75] text-white/88">Aapka Munshi LLP Accounting Consultant providing complete accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai, so you can focus on what you do best.</p>
           <div className="animate-hero-up animation-delay-400 mt-9 flex flex-col gap-4 sm:flex-row">
             <button onClick={() => scrollTo("contact")} className="rounded-lg bg-white px-8 py-3.5 font-semibold text-munshi-primary transition-colors hover:bg-munshi-surface">Book a Meeting</button>
             <button onClick={() => scrollTo("services")} className="rounded-lg border-2 border-white px-8 py-3.5 font-semibold text-white transition-colors hover:bg-white hover:text-munshi-primary">View Our Services</button>
           </div>
           <div className="mt-10 grid gap-4 text-sm font-medium text-white/90 md:grid-cols-3">
-            <div>✓ CA Piyush & CA Anju Laddha</div>
+            <div>✓ CA Anju Laddha & Expert Team</div>
             <div>✓ Housing Societies & Businesses</div>
             <div>✓ Mumbai-Based, Personally Managed</div>
           </div>
@@ -286,7 +317,7 @@ function Index() {
             <h2 className="section-title mt-3">Your Financial Partner,<br />Not Just Your Accountant</h2>
             <div className="mt-7 space-y-5 text-base leading-[1.75] text-munshi-secondary">
               <p>Your financial matters deserve more than just a number-cruncher, they deserve a trusted partner.</p>
-              <p>Aapka Munshi is a team of Chartered Accountants led by <strong className="font-semibold text-munshi-text">CA Piyush Laddha</strong> and <strong className="font-semibold text-munshi-text">CA Anju Laddha</strong>, dedicated to managing your day-to-day accounting, business compliances, and tax filings with precision and care.</p>
+              <p>Aapka Munshi LLP Accounting Consultant is led by <strong className="font-semibold text-munshi-text">CA Anju Laddha</strong>, dedicated to managing your day-to-day accounting, business compliances, and tax filings with precision and care.</p>
               <p>We serve clients of all sizes, from housing societies and small businesses to growing companies and individuals, delivering the same personalized, high-quality attention to every account we handle.</p>
             </div>
           </div>
@@ -312,7 +343,11 @@ function Index() {
           <div key={activeTab} className="mt-8 grid animate-fade-soft gap-7 md:grid-cols-2">
             {services.map((service) => (
               <article key={service.title} className="service-card group rounded-2xl border border-munshi-border bg-munshi-surface p-7 shadow-munshi-card transition-all duration-250 hover:-translate-y-1.5 hover:border-l-4 hover:border-l-munshi-highlight hover:shadow-munshi-card-hover">
-                <Icon path={service.icon} className="h-9 w-9 text-munshi-accent transition-transform duration-250 group-hover:scale-112" />
+                {service.iconSrc ? (
+                  <img src={service.iconSrc} alt="" aria-hidden="true" className="h-9 w-9 transition-transform duration-250 group-hover:scale-112" style={{ filter: "invert(40%) sepia(60%) saturate(500%) hue-rotate(110deg)" }} />
+                ) : (
+                  <Icon path={service.icon} className="h-9 w-9 text-munshi-accent transition-transform duration-250 group-hover:scale-112" />
+                )}
                 <h3 className="mt-5 text-lg font-semibold text-munshi-text">{service.title}</h3>
                 <p className="mt-3 leading-[1.75] text-munshi-secondary">{service.description}</p>
               </article>
@@ -342,7 +377,7 @@ function Index() {
           <div>
             <p className="section-label">Our Technology</p>
             <h2 className="section-title mt-3">Backed by Smart Software</h2>
-            <p className="mt-5 leading-[1.75] text-munshi-secondary">We use <strong className="font-semibold text-munshi-text">SSSociety</strong>, purpose-built software for housing societies, giving your committee and members full transparency and control.</p>
+            <p className="mt-5 leading-[1.75] text-munshi-secondary">We use <strong className="font-semibold text-munshi-text">SS Society</strong>, purpose-built software for housing societies, giving your committee and members full transparency and control.</p>
             <ul className="mt-8 grid gap-4 md:grid-cols-2">
               {softwareFeatures.map((feature) => <li key={feature} className="flex gap-3 leading-[1.6] text-munshi-secondary"><span className="text-munshi-highlight">✓</span><span>{feature}</span></li>)}
             </ul>
@@ -416,7 +451,10 @@ function Index() {
                 <FormField label="Email Address" name="email" value={values.email} error={errors.email} onChange={updateField} onBlur={handleBlur} type="email" />
                 <label className="block"><span className="form-label">I need help with:</span><select value={values.service} onChange={(e) => updateField("service", e.target.value)} onBlur={() => handleBlur("service")} className={`form-input ${errors.service ? "border-red-500" : ""}`}><option value="">Select a service</option><option>Housing Society Accounting</option><option>Business Accounting & Tax</option><option>GST / TDS Filing</option><option>Company Registration</option><option>Payroll</option><option>Other</option></select>{errors.service && <span className="form-error">{errors.service}</span>}</label>
                 <label className="block"><span className="form-label">Message</span><textarea rows={4} value={values.message} onChange={(e) => updateField("message", e.target.value)} onBlur={() => handleBlur("message")} className={`form-input resize-none ${errors.message ? "border-red-500" : ""}`}></textarea>{errors.message && <span className="form-error">{errors.message}</span>}</label>
-                <button className="w-full rounded-lg bg-munshi-primary px-8 py-3.5 font-semibold text-white transition-colors hover:bg-munshi-accent">Send Message</button>
+                {sendError && <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">{sendError}</p>}
+                <button disabled={sending} className="w-full rounded-lg bg-munshi-primary px-8 py-3.5 font-semibold text-white transition-colors hover:bg-munshi-accent disabled:opacity-60 disabled:cursor-not-allowed">
+                  {sending ? "Sending…" : "Send Message"}
+                </button>
               </form>
             )}
           </div>
@@ -425,11 +463,11 @@ function Index() {
 
       <footer className="bg-munshi-dark text-white">
         <div className="mx-auto grid max-w-[1140px] gap-10 px-5 py-14 md:grid-cols-3 lg:px-0">
-          <div><h3 className="text-2xl font-bold">Aapka Munshi<sup className="text-xs">®</sup></h3><p className="mt-2 italic text-white/70">बुक्स आपकी जिम्मेदारी हमारी</p><p className="mt-5 leading-[1.75] text-white/70">CA-led accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai.</p></div>
+          <div><h3 className="text-2xl font-bold">Aapka Munshi<sup className="text-xs">®</sup></h3><p className="mt-2 italic text-white/70">बुक्स आपकी जिम्मेदारी हमारी</p><p className="mt-5 leading-[1.75] text-white/70">Aapka Munshi LLP Accounting Consultant — accounting, tax, and compliance services for housing societies, businesses, and individuals across Mumbai.</p></div>
           <div><p className="text-[13px] font-medium uppercase tracking-[0.08em] text-white/55">Quick Links</p><div className="mt-5 space-y-3 text-white/72">{["About Us", "Services, Housing Societies", "Services, Companies & Individuals", "Why Choose Us", "Contact"].map((link, index) => <button key={link} onClick={() => scrollTo(["about", "services", "services", "why-us", "contact"][index])} className="block transition-colors hover:text-munshi-highlight">{link}</button>)}</div></div>
           <div><p className="text-[13px] font-medium uppercase tracking-[0.08em] text-white/55">Contact</p><div className="mt-5 space-y-3 leading-[1.7] text-white/72"><p>📞 99306 97936 / 90792 15030</p><p>✉ munshiaapka@gmail.com</p><p>📍 Office No. 509, Dimple Arcade, Kandivali East, Mumbai – 400101</p></div></div>
         </div>
-        <div className="border-t border-white/12 px-5 py-5 text-center text-sm text-white/60">© 2025 Aapka Munshi. All rights reserved. | CA Piyush Laddha & CA Anju Laddha</div>
+        <div className="border-t border-white/12 px-5 py-5 text-center text-sm text-white/60">© 2025 Aapka Munshi. All rights reserved. | CA Anju Laddha</div>
       </footer>
 
       <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={`fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-munshi-primary text-2xl text-white shadow-munshi-card transition-all hover:bg-munshi-accent ${showTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"}`} aria-label="Back to top">↑</button>
