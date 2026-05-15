@@ -6,8 +6,8 @@
   "main": "@tanstack/react-start/server-entry",
   "routes": [
     {
-      "pattern": "munshi.kanamundra.in/*",
-      "zone_name": "kanamundra.in"
+      "pattern": "aapkamunshi.in/*",
+      "zone_name": "aapkamunshi.in"
     }
   ]
 }
